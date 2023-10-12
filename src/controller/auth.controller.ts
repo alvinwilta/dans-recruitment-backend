@@ -59,5 +59,19 @@ export const register: RequestHandler = async (req, res) => {
   }
 };
 
-const auth = { register, login };
+export const logout: RequestHandler = async (req, res) => {
+  try {
+    return res
+      .clearCookie("jwt")
+      .status(StatusCodes.OK)
+      .json({ msg: "Logged out" });
+  } catch (err: any) {
+    logger.error(err);
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: "Register error", err: err.message });
+  }
+};
+
+const auth = { register, login, logout };
 export default auth;
