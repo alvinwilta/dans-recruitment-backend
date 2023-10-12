@@ -15,7 +15,6 @@ export const verifyToken: RequestHandler = (req, res, next) => {
     });
   }
   try {
-    logger.info(authorization);
     jwt.verify(
       authorization,
       authConfig.accessTokenSecret,

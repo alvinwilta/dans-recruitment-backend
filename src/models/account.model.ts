@@ -1,6 +1,6 @@
 import { Schema, Types, model, Document, ObjectId } from "mongoose";
 import Account from "../interfaces/auth.interface";
-import modelConstants from "../constants/schema_names";
+import modelConstants from "../constants/schemaNames";
 
 //* Basic schema for account
 

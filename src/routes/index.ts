@@ -1,7 +1,7 @@
 import authRoute from "./auth.route";
-import ticketRoute from "./ticket.route";
+import jobRoute from "./job.route";
 
 export default function setupRoute(app: any) {
-  app.use("/ticket", ticketRoute);
+  app.use("/positions", jobRoute);
   app.use("/auth", authRoute);
 }

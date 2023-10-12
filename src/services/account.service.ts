@@ -12,12 +12,6 @@ export async function createAccount(input: any) {
     const salt = await bcrypt.genSalt(authConfig.salt);
     const hash = await bcrypt.hashSync(input.password, salt);
 
-    //* You can check for roles or anything similar using lodash's includes
-    //* role = constant of role, see constants for an example
-    // if (!includes(role, input.role)) {
-    //   throw Error("Role not known");
-    // }
-
     // * Check username validity to avoid duplicates
     const uname = input.username;
     const result = await AccountModel.find({ username: uname });
