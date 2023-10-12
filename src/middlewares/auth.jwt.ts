@@ -8,7 +8,8 @@ import logger from "../utils/logger";
 
 export const verifyToken: RequestHandler = (req, res, next) => {
   const authorization =
-    req.cookies.jwt || req.headers["authorization"]?.replace("Bearer ", "")[1]; // Authorization: Bearer <token>
+    req.cookies.jwt || req.headers["authorization"]?.replace("Bearer ", ""); // Authorization: Bearer <token>
+  logger.info(req.headers["authorization"]);
   if (!authorization) {
     return res.status(StatusCodes.FORBIDDEN).json({
       msg: "No token provided",
