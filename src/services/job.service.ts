@@ -66,7 +66,7 @@ export async function findJobListService(
         ({ description, how_to_apply, ...rest }) => rest
       );
 
-      const length = omittedJobList.length;
+      const length = Math.ceil(omittedJobList.length / pagination.limit);
       const paginatedJob: PaginationResult<JobShort> = {
         total: length,
         page: pagination.page,

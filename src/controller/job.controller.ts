@@ -42,6 +42,7 @@ export const getJobList: RequestHandler = async (req, res) => {
     }
 
     const jobs = await findJobListService(searchParam, pagination);
+    logger.info("List jobs fetched");
     return res.status(StatusCodes.OK).json(jobs);
   } catch (err: any) {
     logger.error(err);
