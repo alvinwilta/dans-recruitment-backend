@@ -2,7 +2,7 @@
 
 ## Description
 
-Job portal app created with MERN stack in mind using NodeJS (express) and MongoDB (mongoose). This backend app will manage authentication, job pagination, filter, and integrations to the frontend app.
+Job portal app created with MERN stack in mind using NodeJS (express) and MongoDB (mongoose). This backend app will manage authentication, job pagination, filter, and integrations to the frontend app and was built using Typescript.
 
 ## Features
 
@@ -37,19 +37,18 @@ start test with `npm run test`
 - Basic authentication with **jwt** and **bcrypt** (login, register)
 - Basic document creation using MongoDB as database with **mongoose**
 - Separate configuration for development and prod environment
-- Logging formatter with **pino** and **pino-pretty**
+- Logging formatter with **pino**
 - [ ] Unit testing with **mocha** and **chai**
 
 ## API Endpoints
 
-| Method | Route          | Functionalities                         |
-| ------ | -------------- | --------------------------------------- |
-| GET    | /ticket/check  | Check one ticket based on ticket token  |
-| GET    | /ticket        | Fetch all available ticket              |
-| POST   | /ticket/create | Create new ticket                       |
-| DELETE | /ticket/       | Delete one ticket based on ticket token |
-| POST   | /auth/register | Register new user                       |
-| POST   | /auth/login    | User login                              |
+| Method | Route          | Functionalities            | Queries/Parameters                                                                                                    | Require Auth? |
+| ------ | -------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
+| GET    | /positions/:id | Get specific job           | N/A                                                                                                                   | &check;       |
+| GET    | /ticket        | Fetch all available ticket | Queries: <br> -`page`: int <br> -`limit`: int <br> -`search`: str <br> -`location`: str <br> -`full_time`: str (bool) | &check;       |
+| POST   | /auth/register | Register new user          | Params: <br> -`username`: str <br> -`password`: str                                                                   | &cross;       |
+| POST   | /auth/login    | User login                 | Params: <br> -`username`: str <br> -`password`: str                                                                   | &cross;       |
+| POST   | /auth/logout   | User logout                | N/A                                                                                                                   | &check;       |
 
 ## Layers in the server
 
